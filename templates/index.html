@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KonainGPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">KonainGPT</div>
+        <a href="/new" class="new-chat">+ New Chat</a>
+
+        <div class="history">
+            {% for chat in chats %}
+            <div class="history-row {% if chat.id == current_id %}active{% endif %}">
+                <a href="/?cid={{ chat.id }}">{{ chat.title }}</a>
+                <a href="{{ url_for('delete_chat', cid=chat.id) }}" onclick="return confirm('Delete this chat?')">
+                    🗑️
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="chat-area">
+            {% for msg in messages %}
+            <div class="bubble {{ msg.role }}">{{ msg.content }}</div>
+            {% endfor %}
+        </div>
+        {% if doc_status == "uploading" %}
+        <div class="doc-status uploading">
+            ⏳ Uploading & processing document…
+        </div>
+
+        {% elif doc_status == "ready" %}
+        <div class="doc-status ready">
+            ✅ Document loaded: <strong>{{ doc_name }}</strong>
+        </div>
+
+        {% elif doc_status == "error" %}
+        <div class="doc-status error">
+            ❌ Document upload failed. {{ doc_error }}
+        </div>
+        {% endif %}
+
+        <form class="input-bar" action="/chat" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="conversation_id" value="{{ current_id }}">
+            <label class="attach">📎<input type="file" name="file" hidden></label>
+            <input type="text" name="query" placeholder="Message KonainGPT" required>
+            <button>➤</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
