@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background: #1e1f22;
+    color: white;
+    font-family: system-ui;
+}
+
+.sidebar {
+    width: 240px;
+    background: #151618;
+    padding: 15px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.new-chat {
+    display: block;
+    margin: 15px 0;
+    padding: 10px;
+    background: #10a37f;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.history-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.history-row:hover {
+    background: #2a2b2f;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.bubble {
+    max-width: 70%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.user {
+    background: #10a37f;
+    margin-left: auto;
+}
+
+.assistant {
+    background: #2a2b2f;
+}
+
+.input-bar {
+    display: flex;
+    padding: 15px;
+    background: #151618;
+}
+
+.input-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    background: #2a2b2f;
+    border: none;
+    color: white;
+}
+
+.attach {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button {
+    margin-left: 10px;
+    background: #10a37f;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+.doc-status {
+    padding: 8px 14px;
+    margin: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.doc-status.uploading {
+    background: #3a3f4b;
+    color: #ffd166;
+}
+
+.doc-status.ready {
+    background: #1f6f54;
+    color: #c7f9cc;
+}
+
+.doc-status.error {
+    background: #5c1f1f;
+    color: #ffb3b3;
+}
