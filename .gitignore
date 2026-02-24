@@ -1,0 +1,24 @@
+# 🔐 Environment variables
+.env
+
+# 🗄️ SQLite database
+*.db
+
+# 📁 User uploads
+uploads/
+
+# 📦 FAISS index
+faiss_index/
+
+# 🧠 Python cache
+__pycache__/
+*.pyc
+
+# 🧪 Virtual environment
+venv/
+.env/
+.env.*
+
+# 🖥️ OS files
+.DS_Store
+Thumbs.db
